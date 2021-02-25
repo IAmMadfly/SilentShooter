@@ -1,0 +1,4 @@
+(
+  title:          "Silent Shooter",
+  dimensions:     Some((750, 750))
+)
