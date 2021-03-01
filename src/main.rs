@@ -35,6 +35,11 @@ fn main() -> amethyst::Result<()> {
             "ortho_camera_system",
             &[]
         )
+        .with_system_desc(
+            systems::game_time::GameTimeSystemDesc::default(), 
+            "game_time", 
+            &[]
+        )
         .with_bundle(
             RenderingBundle::<DefaultBackend>::new()
                 .with_plugin(

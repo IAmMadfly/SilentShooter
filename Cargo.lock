@@ -3463,6 +3463,7 @@ name = "silent_shooter"
 version = "0.1.0"
 dependencies = [
  "amethyst",
+ "chrono",
  "tiled",
  "time 0.2.25",
 ]
