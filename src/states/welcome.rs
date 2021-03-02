@@ -6,7 +6,10 @@ use amethyst::{
     winit::VirtualKeyCode
 };
 
+use std::path::Path;
+
 use crate::systems::game_time::PlayStateEnum;
+use crate::tools::map_elements::Map;
 
 pub struct WelcomeState {
     game_loader:    Option<()>,
@@ -30,6 +33,15 @@ impl SimpleState for WelcomeState {
         
         self.ui_handle =
             Some(world.exec(|mut creator: UiCreator<'_>| creator.create("ui/welcome.ron", ())));
+        
+        let tiled_path = Path::new("assets/map/map.tmx");
+        println!("Path is: {}", tiled_path.display());
+        let tiled_data = tiled::parse_file(tiled_path)
+            .expect("Failed to get the things");
+        
+        let mep = Map::new(tiled_data);
+        
+        
         
         //game::load_game_map(world);
         if let Some(_loader) = &self.game_loader {

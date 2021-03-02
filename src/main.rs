@@ -18,6 +18,7 @@ use amethyst::{
 
 mod systems;
 mod states;
+mod tools;
 
 fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());
